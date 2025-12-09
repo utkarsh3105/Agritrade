@@ -1,0 +1,276 @@
+/* Carousel image height and width responsive, always cover */
+.s-h-w {
+  width: 100%;
+  height: 48vw;
+  min-height: 450px;
+  max-height: 650px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  /* Performance optimizations */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Optimized video quality and performance */
+.optimized-video {
+  /* Hardware acceleration for smooth playback */
+  transform: translate3d(0, 0, 0);
+  
+  /* Improve video rendering */
+  image-rendering: optimizeQuality;
+  
+  /* Better scaling algorithm */
+  -ms-interpolation-mode: bicubic;
+  
+  /* Prevent layout shifts */
+  contain: layout style paint;
+  
+  /* Optimize for changes */
+  will-change: transform, opacity;
+  
+  /* Better subpixel rendering */
+  -webkit-font-smoothing: subpixel-antialiased;
+  
+  /* Prevent flickering */
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+
+/* Optimized image quality and loading */
+.optimized-image {
+  /* High quality image rendering */
+  image-rendering: optimizeQuality;
+  image-rendering: -webkit-optimize-contrast;
+  
+  /* Better scaling */
+  -ms-interpolation-mode: bicubic;
+  
+  /* Hardware acceleration */
+  transform: translate3d(0, 0, 0);
+  
+  /* Prevent layout shifts */
+  contain: layout style paint;
+  
+  /* Optimize for loading */
+  will-change: transform;
+  
+  /* Better antialiasing */
+  -webkit-font-smoothing: subpixel-antialiased;
+  
+  /* Prevent flicker during load */
+  backface-visibility: hidden;
+}
+
+
+
+/* Flex utility for card rows */
+.j-c-s {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.bg-g {
+  background: linear-gradient(to right, #b2e2ef, #015102);
+}
+
+.link {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.landing-hero {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Overlay hero section on carousel */
+.hero-carousel-section {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  overflow-x: hidden;
+}
+.hero-carousel-section .carousel {
+  position: relative;
+  z-index: 1;
+}
+.hero-overlay-content {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+}
+.hero-overlay-content h1,
+.hero-overlay-content p {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.hero-overlay-content .btn-outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+.hero-overlay-content .btn-outline-light:hover {
+  background: #fff;
+  color: #222;
+}
+@media (max-width: 768px) {
+  .hero-overlay-content h1 {
+    font-size: 2rem;
+  }
+  .hero-overlay-content p {
+    font-size: 1rem;
+  }
+  .hero-overlay-content {
+    padding: 1rem 0.5rem;
+  }
+}
+
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: left;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+}
+.underline-animate {
+  display: inline-block;
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+.underline-animate::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: -4px;
+  background-color: rgb(0, 95, 10);
+  transition: width 0.4s ease;
+}
+.underline-animate:hover::after {
+  width: 100%;
+  color: black ;
+}
+.underline-animate:hover {
+  color: rgb(2, 0, 0) ;
+}
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1200px) {
+  .s-h-w {
+    height: 350px;
+  }
+  .top-products-row .card-img-top,
+  .card-img-top {
+    height: 180px;
+  }
+  .top-products-row .card,
+  .card {
+    min-height: 320px;
+  }
+}
+@media (max-width: 992px) {
+  .s-h-w {
+    height: 220px;
+  }
+  .top-products-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .top-products-row .card {
+    min-width: 220px;
+    max-width: 400px;
+    width: 90%;
+    margin-bottom: 1.5rem;
+    height: 320px;
+  }
+  .top-products-row .card-img-top,
+  .card-img-top {
+    height: 120px;
+  }
+  .card {
+    min-height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .s-h-w {
+    height: 160px;
+  }
+  .top-products-row .card-img-top,
+  .card-img-top {
+    height: 90px;
+  }
+  .top-products-row .card,
+  .card {
+    min-width: 160px;
+    max-width: 100%;
+    width: 100%;
+    min-height: 180px;
+  }
+}
+@media (max-width: 576px) {
+  .s-h-w {
+    height: 100px;
+  }
+  .top-products-row .card-img-top,
+  .card-img-top {
+    height: 60px;
+  }
+  .top-products-row .card,
+  .card {
+    min-width: 120px;
+    font-size: 0.9rem;
+    min-height: 120px;
+  }
+}
+.bg-d{
+  background-color:rgb(240, 243, 230) ;
+}
+.cbc{
+  background:linear-gradient(to right,rgb(118,138,77),rgb(40,56,20)) ;
+}
+.foot{
+  background:linear-gradient(to bottom,rgb(49,46,30),rgb(33,32,28)) ;
+
+}
